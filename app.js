@@ -1,4 +1,4 @@
-
+require("dotenv").config()
 /* question-1 */
 
 let mysql = require("mysql2");
@@ -17,13 +17,13 @@ App.use(express.urlencoded({ extended: true }));
 
 
 let connection = mysql.createConnection({
-  user: "myDBuser",
-  password: "Anabelanb@2024",
+  user: process.env.USER,
+  password: process.env.PASSWORD,
   host: "127.0.0.1",
-  database: "myDB",
+  database: process.env.DATABASE,
   socketPath: "/Applications/MAMP/tmp/mysql/mysql.sock",
 });
-
+console.log(process.env.USER);
 connection.connect(err => {
   if (err) {
     console.log(err);
