@@ -23,7 +23,7 @@ let connection = mysql.createConnection({
   database: process.env.DATABASE,
   socketPath: "/Applications/MAMP/tmp/mysql/mysql.sock",
 });
-console.log(process.env.USER);
+
 connection.connect(err => {
   if (err) {
     console.log(err);
@@ -215,7 +215,7 @@ App.post("/add-product", (req, res) => {
   // });
 
 
-App.get("/select", (req,res) => {
+  App.get("/select", (req,res) => {
 
   connection.query(
     `SELECT ProductTable.product_id, ProductTable.product_name, ProductDescription.product_brief_description, ProductPrice.starting_price FROM 
